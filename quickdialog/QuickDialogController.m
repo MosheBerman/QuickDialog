@@ -120,9 +120,11 @@
     if (_root!=nil) {
         self.title = _root.title;
         self.navigationItem.title = _root.title;
-        if (_root.preselectedElementIndex !=nil)
+        if (_root.preselectedElementIndex !=nil && _root.preselectedElementIndex.row < [self.quickDialogTableView numberOfRowsInSection:_root.preselectedElementIndex.section])
+        {
+            
             [self.quickDialogTableView scrollToRowAtIndexPath:_root.preselectedElementIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
-
+        }
     }
 }
 
